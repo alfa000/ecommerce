@@ -30,17 +30,7 @@ class FortifyServiceProvider extends ServiceProvider
             public function toResponse($request)
             {
                 if (Auth::user()->role == 'admin') {
-                    return redirect(RouteServiceProvider::HOME);
-                }else{
-                    return redirect(route('home'));
-                }
-            }
-        });
-        $this->app->instance(RegisterResponse::class, new class implements RegisterResponse {
-            public function toResponse($request)
-            {
-                if (Auth::user()->role == 'admin') {
-                    return redirect(RouteServiceProvider::HOME);
+                    return redirect(route('dashboard'));
                 }else{
                     return redirect(route('home'));
                 }

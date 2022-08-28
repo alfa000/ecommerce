@@ -20,7 +20,7 @@
                                     <div class="col-lg-7 col-md-7">
                                         <div class="title-heading mt-4">
                                             <h1 class="display-4 fw-bold mb-3 text-black">New Accessories <br> Collections</h1>
-                                            <p class="para-desc text-black">Launch your campaign and benefit from our expertise on designing and managing conversion centered bootstrap v5 html page.</p>
+                                            <p class="para-desc text-black">Buy whatever you need, this is the right place</p>
                                             <div class="mt-4">
                                                 <a href="javascript:void(0)" class="btn btn-soft-primary">Shop Now</a>
                                             </div>
@@ -39,7 +39,7 @@
                                     <div class="col-lg-7 col-md-7">
                                         <div class="title-heading mt-4">
                                             <h1 class="display-4 fw-bold mb-3 text-black">Headphones <br> Speaker</h1>
-                                            <p class="para-desc text-black">Launch your campaign and benefit from our expertise on designing and managing conversion centered bootstrap v5 html page.</p>
+                                            <p class="para-desc text-black">Buy whatever you need, this is the right place</p>
                                             <div class="mt-4">
                                                 <a href="javascript:void(0)" class="btn btn-soft-primary">Shop Now</a>
                                             </div>
@@ -58,7 +58,7 @@
                                     <div class="col-lg-7 col-md-7">
                                         <div class="title-heading mt-4">
                                             <h1 class="display-4 fw-bold mb-3 text-black">Modern Furniture, <br> Armchair</h1>
-                                            <p class="para-desc text-black">Launch your campaign and benefit from our expertise on designing and managing conversion centered bootstrap v5 html page.</p>
+                                            <p class="para-desc text-black">Buy whatever you need, this is the right place</p>
                                             <div class="mt-4">
                                                 <a href="javascript:void(0)" class="btn btn-soft-primary">Shop Now</a>
                                             </div>
@@ -73,60 +73,24 @@
         </section><!--end section-->
         <!-- Hero End -->
 
-        <!-- Features Start -->
-        <div class="container-fluid mt-4">
-            <div class="row">
-                <div class="col-md-4 mt-4 pt-2">
-                    <div class="card shop-features border-0 rounded overflow-hidden">
-                        <img src="{{ asset('assets/app/images/shop/fea1.jpg') }}" class="img-fluid" alt="">
-                        <div class="category-title ms-md-4 ms-2">
-                            <h4>Summer <br> Collection</h4>
-                            <a href="javascript:void(0)" class="btn btn-sm btn-soft-primary mt-2">Shop Now</a>
-                        </div>
-                    </div>
-                </div><!--end col-->
-
-                <div class="col-md-4 mt-4 pt-2">
-                    <div class="card shop-features border-0 rounded overflow-hidden">
-                        <img src="{{ asset('assets/app/images/shop/fea2.jpg') }}" class="img-fluid" alt="">
-                        <div class="category-title ms-md-4 ms-2">
-                            <h4>Summer <br> Collection</h4>
-                            <a href="javascript:void(0)" class="btn btn-sm btn-soft-primary mt-2">Shop Now</a>
-                        </div>
-                    </div>
-                </div><!--end col-->
-
-                <div class="col-md-4 mt-4 pt-2">
-                    <div class="card shop-features border-0 rounded overflow-hidden">
-                        <img src="{{ asset('assets/app/images/shop/fea3.jpg') }}" class="img-fluid" alt="">
-                        <div class="category-title ms-md-4 ms-2">
-                            <h4>Summer <br> Collection</h4>
-                            <a href="javascript:void(0)" class="btn btn-sm btn-soft-primary mt-2">Shop Now</a>
-                        </div>
-                    </div>
-                </div><!--end col-->
-            </div><!--end row-->
-        </div><!--end container-->
-        <!-- Features End -->
-
         <!-- Start -->
         <section class="section">
             <!-- Start Most Viewed Products -->
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h5 class="mb-0">Produk</h5>
+                        <h5 class="mb-2">Product</h5>
                     </div><!--end col-->
                 </div><!--end row-->
 
                 <div class="row">
-                    @foreach ($items as $item)
+                    @forelse ($products as $product)
                     <div class="col-lg-3 col-md-6 col-12 mt-4 pt-2">
-                        <div class="card shop-list border-0 position-relative">
+                        <div class="card shop-list border position-relative">
                             <div class="shop-image position-relative overflow-hidden rounded shadow">
-                                <a href="{{ route('detail', $item->id) }}"><img src="{{ asset('storage/'.$item->img) }}" class="img-fluid" alt=""></a>
-                                <a href="{{ route('detail', $item->id) }}" class="overlay-work">
-                                    <img src="{{ asset('storage/'.$item->img) }}" class="img-fluid" alt="">
+                                <a href="{{ route('detail', $product->id) }}"><img src="{{ asset('storage/'.$product->img) }}" class="img-fluid" alt=""></a>
+                                <a href="{{ route('detail', $product->id) }}" class="overlay-work">
+                                    <img src="{{ asset('storage/'.$product->img) }}" class="img-fluid" alt="">
                                 </a>
                                 <ul class="list-unstyled shop-icons">
                                     <li><a href="javascript:void(0)" class="btn btn-icon btn-pills btn-soft-danger"><i data-feather="heart" class="icons"></i></a></li>
@@ -136,48 +100,32 @@
                             </div>
                             <div class="card-body content pt-4 p-2">
                                 <div class="d-flex align-items-center justify-content-between">
-                                    <a href="{{ route('detail', $item->id) }}" class="text-dark product-name h6 mb-0">{{ $item->name }}</a>
-                                    <div class="w-100 text-right small fst-italic mb-0 mt-1">Rp.{{ $item->price }} </div>
+                                    <a href="{{ route('detail', $product->id) }}" class="text-dark product-name h6 mb-0">{{ $product->name }}</a>
+                                    <div class="w-100 text-right small fst-italic mb-0 mt-1">Rp.{{ $product->price }} </div>
                                 </div>
                                 <p class="mt-1">
-                                    {{ $item->desc }}
+                                    {{ $product->desc }}
                                 </p>
                             </div>
                         </div>
                     </div><!--end col-->
-                    @endforeach
+                    @empty
+                    <div class="col-md-12">
+                        All Product Sold Out.
+                    </div>
+                    @endforelse
                 </div><!--end row-->
             </div><!--end container-->
             <!-- End Most Viewed Product -->
-
-            <!-- Start CTA -->
-            <div class="container-fluid mt-100 mt-60">
-                <div class="rounded py-5" style="background: url('{{ asset('assets/app/images/shop/cta.jpg') }}') fixed;">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="section-title">
-                                    <h2 class="fw-bold text-black mb-4">End of Season Clearance <br> Sale upto 30%</h2>
-                                    <p class="para-desc text-black mb-0">Launch your campaign and benefit from our expertise on designing and managing conversion centered bootstrap v5 html page.</p>
-                                    <div class="mt-4">
-                                        <a href="javascript:void(0)" class="btn btn-primary">Shop Now</a>
-                                    </div>
-                                </div>
-                            </div><!--end col-->
-                        </div><!--end row-->
-                    </div><!--end container-->
-                </div>
-            </div><!--end container-->
-            <!-- End CTA -->
 
             <!-- Start Categories -->
             <div class="container mt-100 mt-60">
                 <div class="row">
                     <div class="col-12">
-                        <h5 class="mb-0">Kategori</h5>
+                        <h5 class="mb-0">Category</h5>
                     </div><!--end col-->
                 </div><!--end row-->
-                <div class="row">
+                <div class="row justify-content-between">
                     <div class="col-lg-2 col-md-4 col-6 mt-4 pt-2">
                         <div class="card features feature-primary explore-feature border-0 rounded text-center">
                             <div class="card-body">
@@ -211,29 +159,9 @@
                     <div class="col-lg-2 col-md-4 col-6 mt-4 pt-2">
                         <div class="card features feature-primary explore-feature border-0 rounded text-center">
                             <div class="card-body">
-                                <img src="{{ asset('assets/app/images/shop/categories/furniture.jpg') }}" class="avatar avatar-small rounded-circle shadow-md" alt="">
-                                <div class="content mt-3">
-                                    <h6 class="mb-0"><a href="javascript:void(0)" class="title text-dark">Furniture</a></h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!--end col-->
-                    <div class="col-lg-2 col-md-4 col-6 mt-4 pt-2">
-                        <div class="card features feature-primary explore-feature border-0 rounded text-center">
-                            <div class="card-body">
                                 <img src="{{ asset('assets/app/images/shop/categories/electronics.jpg') }}" class="avatar avatar-small rounded-circle shadow-md" alt="">
                                 <div class="content mt-3">
                                     <h6 class="mb-0"><a href="javascript:void(0)" class="title text-dark">Electronics</a></h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!--end col-->
-                    <div class="col-lg-2 col-md-4 col-6 mt-4 pt-2">
-                        <div class="card features feature-primary explore-feature border-0 rounded text-center">
-                            <div class="card-body">
-                                <img src="{{ asset('assets/app/images/shop/categories/mobile.jpg') }}" class="avatar avatar-small rounded-circle shadow-md" alt="">
-                                <div class="content mt-3">
-                                    <h6 class="mb-0"><a href="javascript:void(0)" class="title text-dark">Mobiles</a></h6>
                                 </div>
                             </div>
                         </div>
@@ -322,3 +250,10 @@
         </div>
         <!-- Product View End -->
 @endsection
+@push('scripts')
+<script>
+    @if (session('success'))
+        Swal.fire('Succsess', '{{ session("success") }}', 'success')
+    @endif
+</script>
+@endpush

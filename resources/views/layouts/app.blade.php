@@ -5,7 +5,7 @@
 
     <head>
         <meta charset="utf-8" />
-        <title>Landrick - Saas & Software Landing Page Template</title>
+        <title>Tedy Ecommerce</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Premium Bootstrap 5 Landing Page Template" />
         <meta name="keywords" content="Saas, Software, multi-uses, HTML, Clean, Modern" />
@@ -14,9 +14,6 @@
         <meta name="website" content="https://shreethemes.in" />
         <meta name="Version" content="v4.2.0" />
         <meta name="csrf-token" content="{{ csrf_token() }}">
-
-        <!-- favicon -->
-        <link rel="shortcut icon" href="{{ asset('assets/app/images/favicon.ico') }}" />
 
         <!-- Css -->
         <link href="{{ asset('assets/app/libs/tiny-slider/tiny-slider.css') }}" rel="stylesheet">
@@ -28,6 +25,8 @@
         <!-- Style Css-->
         <link href="{{ asset('assets/app/css/style.min.css') }}" class="theme-opt" rel="stylesheet" type="text/css" />
         <link href="{{ asset('assets/app.css') }}" class="theme-opt" rel="stylesheet" type="text/css" />
+
+        @stack('styles')
     </head>
 
     <body>
@@ -36,8 +35,7 @@
             <div class="container">
                 <!-- Logo container-->
                 <a class="logo" href="">
-                    <img src="{{ asset('assets/app/images/logo-dark.png') }}" height="24" class="logo-light-mode" alt="">
-                    <img src="{{ asset('assets/app/images/logo-light.png') }}" height="24" class="logo-dark-mode" alt="">
+                    Tedy Ecommerce
                 </a>
                 <!-- End Logo container-->
 
@@ -78,7 +76,7 @@
 
                     @auth
                         <li class="list-inline-item mb-0">
-                            <a href="{{ route('login') }}" class="btn btn-icon btn-pills btn-primary"><i data-feather="shopping-cart" class="icons"></i></a>
+                            <a href="{{ route('cart') }}" class="btn btn-icon btn-pills btn-primary"><i data-feather="shopping-cart" class="icons"></i></a>
                         </li>
                         <li class="list-inline-item mb-0">
                             <div class="dropdown dropdown-primary">
@@ -122,56 +120,39 @@
                         <div class="footer-py-60">
                             <div class="row">
                                 <div class="col-lg-3 col-12 mb-0 mb-md-4 pb-0 pb-md-2">
-                                    <a href="#" class="logo-footer">
-                                        <img src="{{ asset('assets/app/images/logo-light.png') }}" height="24" alt="">
+                                    <a href="#" class="logo-footer text-light font-weight-bold">
+                                        Tedy Ecommerce
                                     </a>
-                                    <p class="mt-4">Start working with Landrick that can provide everything you.</p>
-                                    <ul class="list-unstyled social-icon foot-social-icon mb-0 mt-4">
-                                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="facebook" class="fea icon-sm fea-social"></i></a></li>
-                                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="instagram" class="fea icon-sm fea-social"></i></a></li>
-                                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="twitter" class="fea icon-sm fea-social"></i></a></li>
-                                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="linkedin" class="fea icon-sm fea-social"></i></a></li>
-                                    </ul><!--end icon-->
+                                    <p class="mt-4">Buy whatever you need, this is the right place</p>
                                 </div><!--end col-->
 
                                 <div class="col-lg-6">
                                     <div class="row">
                                         <div class="col-12 mb-4 pb-2">
-                                            <h5 class="footer-head mb-0">Shopping & Clothes</h5>
+                                            <h5 class="footer-head mb-0">Our Product</h5>
                                         </div><!--end col-->
 
-                                        <div class="col-lg-4 col-md-4 col-12">
+                                        <div class="col-lg-6 col-md-6 col-12">
                                             <ul class="list-unstyled footer-list">
-                                                <li><a href="#" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Men</a></li>
-                                                <li><a href="#" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Jackets & Coats </a></li>
-                                                <li><a href="#" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Jeans </a></li>
-                                                <li><a href="#" class="text-foot"><i class="uil uil-angle-right-b me-1"></i>  Loungewear </a></li>
-                                                <li><a href="#" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Polo shirts </a></li>
-                                                <li><a href="#" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Shirts</a></li>
+                                                <li><a href="#" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Fashion</a></li>
+                                            </ul>
+                                        </div><!--end col-->
+                                        <div class="col-lg-6 col-md-6 col-12">
+                                            <ul class="list-unstyled footer-list">
+                                                <li><a href="#" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Sport</a></li>
+                                            </ul>
+                                        </div><!--end col-->
+                                        <div class="col-lg-6 col-md-6 col-12">
+                                            <ul class="list-unstyled footer-list">
+                                                <li><a href="#" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Electronic</a></li>
+                                            </ul>
+                                        </div><!--end col-->
+                                        <div class="col-lg-6 col-md-6 col-12">
+                                            <ul class="list-unstyled footer-list">
+                                                <li><a href="#" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Music</a></li>
                                             </ul>
                                         </div><!--end col-->
 
-                                        <div class="col-lg-4 col-md-4 col-12 mt-2 mt-sm-0">
-                                            <ul class="list-unstyled footer-list">
-                                                <li><a href="#" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Shorts </a></li>
-                                                <li><a href="#" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Suits Swimwear </a></li>
-                                                <li><a href="#" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> T-shirts </a></li>
-                                                <li><a href="#" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Tracksuits </a></li>
-                                                <li><a href="#" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Trousers</a></li>
-                                                <li><a href="#" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Shirts</a></li>
-                                            </ul>
-                                        </div><!--end col-->
-
-                                        <div class="col-lg-4 col-md-4 col-12 mt-2 mt-sm-0">
-                                            <ul class="list-unstyled footer-list">
-                                                <li><a href="#" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> My account </a></li>
-                                                <li><a href="#" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Order History </a></li>
-                                                <li><a href="#" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Wish List </a></li>
-                                                <li><a href="#" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Newsletter</a></li>
-                                                <li><a href="#" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Affiliate</a></li>
-                                                <li><a href="#" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Returns</a></li>
-                                            </ul>
-                                        </div><!--end col-->
                                     </div><!--end row-->
                                 </div><!--end col-->
 
@@ -207,63 +188,14 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="footer-py-30 footer-border">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-lg-3">
-                                        <div class="d-flex align-items-center justify-content-center">
-                                            <i class="uil uil-truck align-middle h5 mb-0 me-2"></i>
-                                            <h6 class="mb-0">Free delivery</h6>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-3">
-                                        <div class="d-flex align-items-center justify-content-center">
-                                            <i class="uil uil-archive align-middle h5 mb-0 me-2"></i>
-                                            <h6 class="mb-0">Non-contact shipping</h6>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-3">
-                                        <div class="d-flex align-items-center justify-content-center">
-                                            <i class="uil uil-transaction align-middle h5 mb-0 me-2"></i>
-                                            <h6 class="mb-0">Money-back quarantee</h6>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-3">
-                                        <div class="d-flex align-items-center justify-content-center">
-                                            <i class="uil uil-shield-check align-middle h5 mb-0 me-2"></i>
-                                            <h6 class="mb-0">Secure payments</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="footer-py-30 footer-border">
                             <div class="container text-center">
                                 <div class="row align-items-center">
                                     <div class="col-sm-6">
                                         <div class="text-sm-start">
-                                            <p class="mb-0">© <script>document.write(new Date().getFullYear())</script> Landrick. Design with <i class="mdi mdi-heart text-danger"></i> by <a href="https://shreethemes.in/" target="_blank" class="text-reset">Shreethemes</a>.</p>
+                                            <p class="mb-0">© {{date('Y')}} Tedy Ecommerce </a></p>
                                         </div>
                                     </div><!--end col-->
 
-                                    <div class="col-sm-6 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                                        <ul class="list-unstyled text-sm-end mb-0">
-                                            <li class="list-inline-item"><a href="javascript:void(0)"><img src="{{ asset('assets/app/images/payments/american-ex.png') }}" class="avatar avatar-ex-sm" title="American Express" alt=""></a></li>
-                                            <li class="list-inline-item"><a href="javascript:void(0)"><img src="{{ asset('assets/app/images/payments/discover.png') }}" class="avatar avatar-ex-sm" title="Discover" alt=""></a></li>
-                                            <li class="list-inline-item"><a href="javascript:void(0)"><img src="{{ asset('assets/app/images/payments/master-card.png') }}" class="avatar avatar-ex-sm" title="Master Card" alt=""></a></li>
-                                            <li class="list-inline-item"><a href="javascript:void(0)"><img src="{{ asset('assets/app/images/payments/paypal.png') }}" class="avatar avatar-ex-sm" title="Paypal" alt=""></a></li>
-                                            <li class="list-inline-item"><a href="javascript:void(0)"><img src="{{ asset('assets/app/images/payments/visa.png') }}" class="avatar avatar-ex-sm" title="Visa" alt=""></a></li>
-                                        </ul>
-                                    </div><!--end col-->
                                 </div><!--end row-->
                             </div><!--end container-->
                         </div>
@@ -287,5 +219,8 @@
         <!-- Main Js -->
         <script src="{{ asset('assets/app/js/plugins.init.js') }}"></script><!--Note: All init js like tiny slider, counter, countdown, maintenance, lightbox, gallery, swiper slider, aos animation etc.-->
         <script src="{{ asset('assets/app/js/app.js') }}"></script><!--Note: All important javascript like page loader, menu, sticky menu, menu-toggler, one page menu etc. -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        @stack('scripts')
     </body>
 </html>
